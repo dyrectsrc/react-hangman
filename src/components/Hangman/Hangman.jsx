@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useMemo, useState, useCallback } from 'react'
 import PropTypes from 'prop-types';
 import { debounce } from 'lodash';
 
+
 import './Hangman.css';
 
 /**
@@ -111,12 +112,14 @@ const clearCanvas = canvas => {
  * ```
  */
 export const Hangman = ({ incorrectGuessCount = 0 }) => {
+  console.log(incorrectGuessCount);
   const containerRef = useRef();
   const canvasRef = useRef();
   const drawnPartsRef = useRef(0);
   const previousIncorrectGuessCountRef = useRef(incorrectGuessCount);
   const [size, setSize] = useState();
 
+ 
   const hangmanParts = useMemo(() => getHangmanParts(size), [size]);
 
   // Resizes the canvas based on its parent's width
@@ -125,7 +128,7 @@ export const Hangman = ({ incorrectGuessCount = 0 }) => {
     const containerSize = parseInt(style.width);
     setSize(containerSize);
   }, []);
-
+ 
   // Debounced version to use as a resize event listener
   const resizeCanvasDebounce = useCallback(debounce(resizeCanvas, 50), []);
 
@@ -162,8 +165,11 @@ export const Hangman = ({ incorrectGuessCount = 0 }) => {
     drawnPartsRef.current = incorrectGuessCount;
   }, [hangmanParts, incorrectGuessCount]);
 
+
+
   return (
     <div className="Hangman" ref={containerRef}>
+     
       <canvas ref={canvasRef} height={size} width={size}></canvas>
     </div>
   );

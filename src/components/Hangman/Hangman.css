@@ -3,3 +3,35 @@
   padding: 16px;
   margin: 0;
 }
+
+.letter-btn{
+  background:#4779b0;
+  border:solid 1px #eee;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 20px;
+  width:30px;
+  height: 30px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.letter-btn:disabled{
+  background: #888
+}
+
+.btn-reset{
+  padding: 6px;
+  border-radius: 10px;
+  border: 1px solid #888;
+}
+
+.hangman-wrap {
+  display: -webkit-inline-box;
+}
+
+.hangman-console{
+  margin-left: 20px;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif
+}
